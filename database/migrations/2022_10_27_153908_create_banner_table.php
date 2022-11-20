@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longtext('Image');
             $table->text('Description');
             $table->text('Status');
+            $table->longText('short_Description');
 
             $table->timestamps();
         });

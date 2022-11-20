@@ -9,8 +9,8 @@ class bannerController extends Controller
     
         public function index()
         {
-            $banners=banner::paginate(3);
-            return view('Backend.banner.banner',compact('banners'));
+            $banners=banner::paginate(8);
+            return view('backend.banner.banner',compact('banners'));
         }
     
         public function store(Request $request)
@@ -20,6 +20,13 @@ class bannerController extends Controller
             $banners->Image=$request->Image;
             $banners->Description=$request->Description;
             $banners->Status=$request->Status;
+            $banners->short_Description=$request->short_Description;
+
+            if($request->hasfile('Image'))
+            {
+                $image=$request->file('Image')->store('banner','uploads');
+                $banners->Image=$image;
+            }
             $banners->save();
             return redirect()->back()->with('success','banner is successfully stored');
             }
@@ -46,6 +53,7 @@ class bannerController extends Controller
             $banners->Image=$request->Image;
             $banners->Description=$request->Description;
             $banners->Status=$request->Status;
+            $banners->short_description=$request->short_description;
             $banners->save();
             return redirect('banners/details')->with('success','banner is successfully updated');
        }
@@ -54,7 +62,7 @@ class bannerController extends Controller
             {
                 $banner=banner::FindOrFail($id);
                 return view('Backend.banner.details',compact('banner'));
-            }
-    
+            } 
+            
 }
 

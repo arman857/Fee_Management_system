@@ -15,6 +15,7 @@ class banner extends Model
        'Title',
        'Image',
        'Description',
-       'Status'
+       'Status',
+       'short_Description',
     ];
 }

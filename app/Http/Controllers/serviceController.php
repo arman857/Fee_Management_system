@@ -19,6 +19,14 @@ class serviceController extends Controller
         $services->Title=$request->Title;
         $services->Description=$request->Description;
         $services->Status=$request->Status;
+        $services->short_description=$request->short_description;
+
+        if($request->hasfile('Image'))
+        {
+            $image=$request->file('Image')->store('service','uploads');
+            $services->Image=$image;
+        }
+        // dd($services);
         $services->save();
         return redirect()->back()->with('success','service is successfully stored');
         }
@@ -27,7 +35,7 @@ class serviceController extends Controller
         {
             $services=service::findOrFail($id);
             $services->delete();
-            return redirect()->back()->with('danger','Fee is successfully deleted');;
+            return redirect()->back()->with('danger','Fee is successfully deleted');
         }
 
         public function edit($id)
@@ -41,6 +49,8 @@ class serviceController extends Controller
             $services=service::findOrFail($id);
             $services->Title=$request->Title;
             $services->Description=$request->Description;
+            $services->Status=$request->Status;
+            $services->short_description=$request->short_description;
             $services->Status=$request->Status;
             $services->save();
             return redirect('services/details')->with('success','service is successfully stored');

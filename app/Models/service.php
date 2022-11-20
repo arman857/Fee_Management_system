@@ -14,6 +14,8 @@ class service extends Model
         'Title',
         'Description',
         'Status',
+        'short_description',
+        'Image',
 
     ];
 }

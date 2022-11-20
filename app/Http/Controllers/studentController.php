@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class studentController extends Controller
 {
     public function infor(){
-        $students=student::paginate(3);
+        $students=student::paginate(10);
         return view('backend.student.infor',compact('students'));
     }
 

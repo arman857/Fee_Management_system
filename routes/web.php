@@ -2,53 +2,49 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeeController;
+use App\Http\Controllers\shopController;
+use App\Http\Controllers\aboutController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\bannerController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\searchController;
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\serviceController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-// MVC (Model, View and Controller)
-// php artisan make:controller controllername
+use App\Http\Controllers\settingController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\userMassageController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('Backend.dashboard');
+// });
 
-Route::get('/login',[StudentController::class,'login']);
-Route::get('/login2',[StudentController::class,'login2']);
+// //this ruote is website route
+Route::get('/',[shopController::class,'index']);
+Route::get('home/details/{id}',[shopController::class,'service_details']);
+Route::post('contacts/store',[shopController::class,'store']);
 
-Route::get('/form',[StudentController::class,'form']);
-Route::get('/validform',[StudentController::class,'validform']);
 
-Route::get('/table',[StudentController::class,'table']);
-Route::get('/table2',[StudentController::class,'table2']);
 
-Route::get('/table3',[StudentController::class,'table3']);
-Route::get('/sudent2',[StudentController::class,'student2']);
+Route::get('logout_user', [App\Http\Controllers\HomeController::class, 'logout']);
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function() {
 
-// mir husen code is started form here
+    Route::get('student/details',[studentController::class,'infor']);
+    Route::POST('students',[studentController::class,'store']);
+    Route::get('students/edit/{id}',[studentController::class,'edit']);
+    Route::get('delete/{id}',[studentController::class,'delete']);
+    Route::post('student/update/{id}',[studentController::class,'update']);
+    Route::get('students/detail/{id}',[studentController::class,'detail']);
+    
 
-Route::get('fee/details',[FeeController::class,'index']);
+    Route::get('fee/details',[FeeController::class,'index']);
 Route::POST('fees',[FeeController::class,'store']);
 Route::get('fees/edit/{id}',[FeeController::class,'edit']);
 Route::POST('fees/update/{id}',[FeeController::class,'update']);
 Route::get('deletes/{id}',[FeeController::class,'delete']);
 Route::get('fees/details/{id}',[FeeController::class,'details']);
 
-Route::get('student/details',[studentController::class,'infor']);
-Route::POST('students',[studentController::class,'store']);
-Route::get('students/edit/{id}',[studentController::class,'edit']);
-Route::get('delete/{id}',[studentController::class,'delete']);
-Route::post('student/update/{id}',[studentController::class,'update']);
-Route::get('students/detail/{id}',[studentController::class,'detail']);
+
 
 Route::get('banners/details',[bannerController::class,'index']);
 Route::post('banners/store',[bannerController::class,'store']);
@@ -63,3 +59,16 @@ Route::get('delete/service/{id}',[serviceController::class,'delete']);
 Route::get('services/edit/{id}',[serviceController::class,'edit']);
 Route::post('services/update/{id}',[serviceController::class,'update']);
 Route::get('services/details/{id}',[serviceController::class,'details']);
+
+});
+
+Route::get('user',[shopController::class,'massage']);
+Route::get('delete/shops/{id}',[shopController::class,'delete']);
+// Route::get('login2',[loginController::class,'login'])->name('login');
+Route::get('search',[searchController::class,'allstudent'])->name('search');
+Route::get('setting',[settingController::class,'index'])->name('index');
+Route::post('setting',[settingController::class,'store'])->name('store');
+Route::get('delete/{id}',[settingController::class,'delete'])->name('delete');
+// Route::get('company/{id}',[settingController::class,'setting_details']);
+Route::get('edit/{id}',[settingController::class,'edit']);
+Route::post('edit/{id}',[settingController::class,'update']);
