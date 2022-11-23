@@ -40,11 +40,12 @@ class shopController extends Controller
      
     public function store(Request $request)
     {
-        // $validate=$request->validate([
-        //     'Name'=>['required'],
-        //     'email'=>['required','min:10'],
-            
-        //   ]);
+        $validate=$request->validate([
+            'Name'=>['required'],
+            'Email'=>['required','min:10'],
+            'Phone_Number' =>['required'],
+            'Massage'=>['required'],
+          ]);
         $shops=new shop;
         $shops->Name=$request->Name;
         $shops->Email=$request->Email;

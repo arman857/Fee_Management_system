@@ -28,6 +28,9 @@
                             <li class="nav-item @yield('user')">
                               <a class="nav-link" href="{{url('user')}}"><i>User Massage</i></a>
                                </li>
+                               <li class="nav-item @yield('setting')">
+                                <a class="nav-link" href="{{url('setting')}}"><i>Setting</i></a>
+                                 </li>
                              <li class="nav-item dropdown @yield('dropdown')">
                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" 
                                 aria-expanded="false"><i>Website</i></a>
@@ -37,10 +40,10 @@
                                     </div>
                                      </li>
                                       </ul>
-                                       <form class="form-inline my-2 my-lg-0">
+                                       {{-- <form class="form-inline my-2 my-lg-0">
                                         <input class="form-control mr-sm-2" type="text" placeholder=" Student Search">
                       <button class="btn btn-warning" type="submit"><a href="{{url('search')}}"> <i>Search</i></a></button>
-                                         &nbsp;&nbsp;
+                                         &nbsp;&nbsp; --}}
                                        
                 <button class="btn btn-warning" type="submit">  <a href="{{url('logout_user')}}">logout</a></button>
                                     

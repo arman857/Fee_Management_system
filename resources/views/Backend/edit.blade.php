@@ -45,14 +45,20 @@
                </div>
                  <div class="row">
                     <div class="form-group col-6">
-                      <label for="exampleFormControlInput1" class="text-dark"><i>Google_Link</i></label>
-                        <input type="text" class="form-control  text-center" Name="Google_Link" value="{{$setting->Google_Link}}">
+                      <label for="exampleFormControlInput1" class="text-dark"><i>Twitter_Link</i></label>
+                        <input type="text" class="form-control  text-center" Name="Twitter_Link" value="{{$setting->Twitter_Link}}">
                            </div> 
                               <div class="form-group col-6">
-                                <label for="exampleFormControlInput1" class="text-dark"><i>Youtube_Link</i></label>
-                                   <input type="text" class="form-control text-center" name="Youtube_Link" value="{{$setting->Youtube_Link}}">
+                                <label for="exampleFormControlInput1" class="text-dark"><i>Instagram_Link</i></label>
+                                   <input type="text" class="form-control text-center" name="Instagram_Link" value="{{$setting->Instagram_Link}}">
                                      </div>
                                       </div>
+                                      <div class="row">
+                                      <div class="form-group col-6">
+                                        <label for="exampleFormControlInput1" class="text-dark"><i>Linkdin_Link</i></label>
+                                          <input type="text" class="form-control  text-center" Name="Linkedin_Link" value="{{$setting->Linkedin_Link}}">
+                                             </div> 
+                                            </div>
                                         <div class="modal-footer">
                                           <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i>Close</i></button>
                                             <button type="submit" class="btn btn-primary"><i>Save</i></button>

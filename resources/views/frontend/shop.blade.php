@@ -64,14 +64,30 @@
             <form action="{{url('contacts/store')}}" method="POST"  enctype="multipart/form-data">
                @csrf
             <div class="mail_sectin">
-               <input type="text" class="email-bt" placeholder="Name" name="Name" required >
-               
-               <input type="text" class="email-bt" placeholder="Email" name="Email" required >
-         
-               <input type="text" class="email-bt" placeholder="Phone Number" name="Phone_Number" required >
-              
-               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage" required ></textarea>
-           
+               <input type="text" class="email-bt" placeholder="Name" name="Name" value="{{old('Name')}}">
+                 <ul>
+               @error('Name')
+                    <li><span style=color:blue><i><h2>{{$message}}</h2></i></span></li><br>
+                @enderror
+               </ul>
+               <input type="text" class="email-bt" placeholder="Email" name="Email" value="{{old('Email')}}">
+                 <ul>
+               @error('Email')
+                   <li><span style=color:blue><i><h2>{{$message}}</h2></i></span></li><br>
+               @enderror
+                  </ul>
+               <input type="text" class="email-bt" placeholder="Phone Number" name="Phone_Number" value="{{old('Phone_Number')}}">
+                  <ul>
+                 @error('Phone_Number')
+                   <li><span style=color:blue><i><h2>{{$message}}</h2></i></span></li><br>
+                @enderror
+                  </ul>
+               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage" value="{{old('Massage')}}"></textarea>
+               <ul>
+               @error('Massage')
+                    <li><span style=color:blue><i><h2>{{$message}}</h2></i></span></li><br>
+               @enderror
+               </ul>
                <button type="submit" class="btn btn-primary btn-lg">Send Me</button>
             </div>
          </div>

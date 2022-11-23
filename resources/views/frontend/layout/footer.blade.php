@@ -53,9 +53,9 @@
          <div class="social_icon">
             <ul>
                <li><a href="{{$setting->Facebook_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/fb-icon.png')}}"></a></li>
-               <li><a href="{{$setting->Google_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/twitter-icon.png')}}"></a></li>
-               <li><a href="{{$setting->Youtube_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/instagram-icon.png')}}"></a></li>
-               
+               <li><a href="{{$setting->Twitter_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/twitter-icon.png')}}"></a></li>
+               <li><a href="{{$setting->Instagram_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/instagram-icon.png')}}"></a></li>
+               <li><a href="{{$setting->Linkdin_Link ?? ''}}" target="_blank"><img src="{{url('frontend/images/linkedin-icon.png')}}"></a></li>
             </ul>
          </div>
             

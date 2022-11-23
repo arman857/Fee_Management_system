@@ -20,7 +20,7 @@ use App\Http\Controllers\userMassageController;
 // //this ruote is website route
 Route::get('/',[shopController::class,'index']);
 Route::get('home/details/{id}',[shopController::class,'service_details']);
-Route::post('contacts/store',[shopController::class,'store']);
+Route::post('contacts/store',[shopController::class,'store'])->name('contact');
 
 
 
@@ -65,10 +65,8 @@ Route::get('services/details/{id}',[serviceController::class,'details']);
 Route::get('user',[shopController::class,'massage']);
 Route::get('delete/shops/{id}',[shopController::class,'delete']);
 // Route::get('login2',[loginController::class,'login'])->name('login');
-Route::get('search',[searchController::class,'allstudent'])->name('search');
 Route::get('setting',[settingController::class,'index'])->name('index');
 Route::post('setting',[settingController::class,'store'])->name('store');
 Route::get('delete/{id}',[settingController::class,'delete'])->name('delete');
-// Route::get('company/{id}',[settingController::class,'setting_details']);
 Route::get('edit/{id}',[settingController::class,'edit']);
 Route::post('edit/{id}',[settingController::class,'update']);

@@ -21,8 +21,9 @@ return new class extends Migration
             $table->decimal('Phone');
             $table->longText('Description');
             $table->longText('Facebook_Link');
-            $table->longText('Google_Link');
-            $table->longText('Youtube_Link');
+            $table->longText('Twitter_Link');
+            $table->longText('Instagram_Link');
+            $table->longText('Linkedin_Link');
             $table->timestamps();
         });
     }

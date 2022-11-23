@@ -7,6 +7,7 @@
              @if (session('danger'))
                <div class="alert alert-danger"> {{ session('danger') }}
                  </div>
+                 @endif
 <div class="container">
   <div class="modal-body">
     <form action="{{url('student/update')}}/{{$student->id}}" method="POST">

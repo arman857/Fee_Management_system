@@ -7,14 +7,28 @@ use Illuminate\Http\Request;
 
 class FeeController extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
-        $fees=Fee::paginate(3);
+        $search=$request['search']??"";
+        if($search !=""){
+        $fees = fee::where('student_name','LIKE',"%$search%")->get();
+        }else{
+          
+            $fees=fee::all();
+        }
+
+        // $fees=Fee::paginate(3);
         return view('Backend.fee.index',compact('fees'));
     }
 
     public function store(Request $request)
     {
+        $validate=$request->validate([
+            'date'  =>['required'],
+            'student_name'  => ['required'],
+            'amount' => ['required'],
+            'comment'  =>['required'],
+        ]);
         $fees=new Fee;
         $fees->date=$request->date;
         $fees->student_name=$request->student_name;

@@ -15,6 +15,12 @@ class bannerController extends Controller
     
         public function store(Request $request)
         {
+            $validate=$request->validate([
+              'Title'  =>['required'],
+              'Image'  =>['required'],
+               'Description' =>['required'],
+               'short_Description' =>['required'],
+            ]);
             $banners=new banner;
             $banners->Title=$request->Title;
             $banners->Image=$request->Image;

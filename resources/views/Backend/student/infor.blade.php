@@ -15,6 +15,10 @@
   <div class="card-header">
     <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><i>Add Student</i></button>
       </div>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text"  name="search" placeholder="Search">
+        <button class="btn btn-warning" type="submit">Search</button>
+        </form>
         <div class="card-body">
           <table class="table caption-top">  
             <thead class="bg-info text-center text-light">
@@ -41,6 +45,7 @@
                                                    <td><i>{{$data->Class}}</i></td>
                                                      <td><i>{{$data->Address}}</i></td>
                                                        <td><i>{{$data->Mobile_Number}}</i></td>
+                                                       <td>
 <a href="{{url('students/detail',$data->id)}}"> <button class="btn btn-warning btn-sm"><i>Details</i></button></a>          
   <a href="{{url('students/edit',$data->id)}}"> <button class="btn btn-primary btn-sm"><i>EDIT</i></button></a>
     <a href="{{url('delete',$data->id)}}"> <button class="btn btn-danger btn-sm"><i>Delete</i></button></a>
@@ -49,7 +54,7 @@
           @endforeach
            </tbody>
             </table>
-              {{$students->links()}}
+              {{-- {{$students->links()}} --}}
 <div class="card-footer text-muted">
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -66,35 +71,70 @@
                      <div class="row">
 <div class="form-group col-6">
   <label for="exampleFormControlInput1" class="text-dark"><i>Name</i></label>
-    <input type="text" class="form-control  text-center" Name="Name" placeholder="Enter Name"required>
-     </div>
+    <input type="text" class="form-control  text-center" Name="Name" value="{{old('Name')}}" placeholder="Enter Name">
+     <ul>
+       @error('Name')
+        <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+         @enderror
+          </ul>
+           </div>
       <div class="form-group col-6">
         <label for="exampleFormControlInput"class="text-dark"><i>Father_Name</i></label>
-          <input type="text" class="form-control text-center" Name="Father_Name" placeholder="Father_Name"required>
-            </div>
-              </div>
-                <div class="row">
-                  <div class="form-group col-6">
-                    <label for="exampleFormControlInput1" class="text-dark"><i>Mother_Name</i></label>
-                      <input type="text" class="form-control  text-center" Name="Mother_Name" placeholder="Mother_Name"required>
-                        </div>
+          <input type="text" class="form-control text-center" Name="Father_Name" value="{{old('Father_Name')}}" placeholder="Father_Name">
+           <ul>
+             @error('Father_Name')
+             <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+               @enderror
+                </ul>
+                 </div>
+                  </div>
+                    <div class="row">
+                     <div class="form-group col-6">
+                       <label for="exampleFormControlInput1" class="text-dark"><i>Mother_Name</i></label>
+                        <input type="text" class="form-control  text-center" Name="Mother_Name" value="{{old('Mother_Name')}}" placeholder="Mother_Name">
+                         <ul>
+                          @error('Mother_Name')
+                          <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                            @enderror
+                             </ul>
+                              </div>
 <div class="form-group col-6">
   <label for="exampleFormControlInput1" class="text-dark"><i>DOB</i></label>
-    <input type="date" class="form-control  text-center" Name="DOB" placeholder="Date Of Birth"required>
-      </div>
-        </div>     
-          <div class="row">
+    <input type="date" class="form-control  text-center" Name="DOB" value="{{old('DOB')}}" placeholder="Date Of Birth">
+     <ul>
+      @error('DOB')
+       <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+        @enderror
+         </ul>
+           </div>
+            </div>     
+              <div class="row">
             <div class="form-group col-6">
               <label for="exampleFormControlInput1" class="text-dark"><i>Class</i></label>
-                <input type="text" class="form-control text-center" Name="Class" placeholder="Class"required>
+                <input type="text" class="form-control text-center" Name="Class" value="{{old('Class')}}" placeholder="Class">
+                 <ul>
+                  @error('Class')
+                  <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                  @enderror
+                 </ul>
                   </div>
                     <div class="form-group col-6">
                       <label for="exampleFormControlInput1" class="text-dark"><i>Address</i></label>
-                        <input type="text" class="form-control  text-center" name="Address" placeholder="Address"required>
+                        <input type="text" class="form-control  text-center" name="Address" value="{{old('Address')}}" placeholder="Address">
+                         <ul>
+                          @error('Address')
+                           <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                             @enderror
+                              </ul>
                            </div>
                              <div class="form-group col-6">
                               <label for="exampleFormControlInput1" class="text-dark"><i>Mobile_Number</i></label>
-<input type="number" class="form-control text-center" name="Mobile_Number" placeholder="Mobile_Number"required>
+<input type="number" class="form-control text-center" name="Mobile_Number" value="{{old('Mobile_Number')}}" placeholder="Mobile_Number">
+ <ul>
+   @error('Mobile_Number')
+    <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+      @enderror
+</ul>
   </div>
     </div>
       </div>

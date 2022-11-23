@@ -1,5 +1,5 @@
 @extends('Backend.components.layout')
-@section('student','active')
+@section('setting','active')
 @section('title','Setting')
 @section('contain')
        @if (session('success'))
@@ -25,8 +25,9 @@
                                   <th scope="col"><i>Phone</i></th>
                                    <th scope="col"><i>Description</i></th>
                                      <th scope="col"><i>Facebook_Link</i></th>
-                                      <th scope="col"><i>Google_Link</i></th>
-                                        <th scope="col"><i>Youtube_Link</i></th> 
+                                      <th scope="col"><i>Twitter_Link</i></th>
+                                        <th scope="col"><i>Instagram_Link</i></th>
+                                        <th scope="col"><i>Linkedin_Link</i></th> 
                                           <th scope="col"><i>Action</i></th>
                                             </tr>
                                               </thead>
@@ -40,8 +41,9 @@
                                                              <td><i>{{$data->Phone}}</i></td>
                                                                <td><i>{{$data->Description}}</i></td>
                                                                  <td><i>{{$data->Facebook_Link}}</i></td>
-                                                                   <td><i>{{$data->Google_Link}}</i></td>
-                                                                     <td><i>{{$data->Youtube_Link}}</i></td>
+                                                                   <td><i>{{$data->Twitter_Link}}</i></td>
+                                                                     <td><i>{{$data->Instagram_Link}}</i></td>
+                                                                     <td><i>{{$data->Linkedin_Link}}</i></td>
                                                                       <td>
 <a href="{{url('delete',$data->id)}}"> <button class="btn btn-danger btn-bg-light btn-sm">Delete</button></a>
   <a href="{{url('edit',$data->id)}}"> <button class="btn btn-primary btn-bg-light btn-sm">edit</button></a>
@@ -56,7 +58,7 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h3 class="modal-title  text-dark" id="exampleModalLabel"><i>Student- Information</i></h3>
+                        <h3 class="modal-title  text-dark" id="exampleModalLabel"><i>Company- Information</i></h3>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                              </button>
@@ -67,42 +69,94 @@
                                      <div class="row">
                                        <div class="form-group col-6">
                                          <label for="exampleFormControlInput1" class="text-dark"><i>Company Name</i></label>
-                                           <input type="text" class="form-control  text-center" Name="Company_Name" required>
+                                           <input type="text" class="form-control  text-center" Name="Company_Name" value="{{old('Company_Name')}}">
+                                           <ul>
+                                            @error('Company_Name')
+                                             <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                                               @enderror
+                                         </ul>
                                             </div>
                                               <div class="form-group col-6">
                                                 <label for="exampleFormControlInput"class="text-dark"><i>Logo</i></label>
-  <input type="text" class="form-control text-center" Name="Logo" required>
+  <input type="file" class="form-control text-center" Name="Logo" value="{{old('Logo')}}">
+  <ul>
+    @error('Logo')
+     <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+       @enderror
+     </ul>
     </div>
       </div>
         <div class="row">
           <div class="form-group col-6">
             <label for="exampleFormControlInput1" class="text-dark"><i>Email</i></label>
-              <input type="text" class="form-control  text-center" Name="Email"erequired>
+              <input type="text" class="form-control  text-center" Name="Email" value="{{old('Email')}}">
+              <ul>
+                @error('Email')
+                 <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                   @enderror
+                 </ul>
                 </div>
                   <div class="form-group col-6">
                     <label for="exampleFormControlInput1" class="text-dark"><i>Phone</i></label>
-                      <input type="text" class="form-control  text-center" Name="Phone" required>
+                      <input type="text" class="form-control  text-center" Name="Phone" value="{{old('Phone')}}">
+                      <ul>
+                        @error('Phone')
+                         <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                           @enderror
+                           </ul>
                         </div>
                           </div>     
                             <div class="row">
                               <div class="form-group col-6">
                                  <label for="exampleFormControlInput1" class="text-dark"><i>Description</i></label>
-                                   <textarea type="textarea" class="form-control text-center" Name="Description" required></textarea>
+                                   <textarea type="textarea" class="form-control text-center" Name="Description" value="{{old('Description')}}"></textarea>
+                                   <ul>
+                                    @error('Description')
+                                     <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                                       @enderror
+                                     </ul>
                                     </div>
                                       <div class="form-group col-6">
                                          <label for="exampleFormControlInput1" class="text-dark"><i>Facebook_Link</i></label>
-<input type="text" class="form-control  text-center" name="Facebook_Link"required>
+<input type="text" class="form-control  text-center" name="Facebook_Link" value="{{old('Facebook_Link')}}">
+<ul>
+  @error('Facebook_Link')
+   <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+     @enderror
+   </ul>
   </div>
+</div>
     <div class="row">
       <div class="form-group col-6">
-        <label for="exampleFormControlInput1" class="text-dark"><i>Google_Link</i></label>
-          <input type="text" class="form-control  text-center" Name="Google_Link" required>
+        <label for="exampleFormControlInput1" class="text-dark"><i>Twitter_Link</i></label>
+          <input type="text" class="form-control  text-center" Name="Twitter_Link" value="{{old('Twitter_Link')}}">
+          <ul>
+            @error('Twitter_Link')
+             <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+               @enderror
+             </ul>
             </div> 
               <div class="form-group col-6">
-                <label for="exampleFormControlInput1" class="text-dark"><i>Youtube_Link</i></label>
-                  <input type="text" class="form-control text-center" name="Youtube_Link"required>
+                <label for="exampleFormControlInput1" class="text-dark"><i>Instagram_Link</i></label>
+                  <input type="text" class="form-control text-center" name="Instagram_Link" value="{{old('Intsagram_Link')}}">
+                  <ul>
+                    @error('Instagram_Link')
+                     <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                       @enderror
+                     </ul>
                     </div>
                       </div>
+                   
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="exampleFormControlInput1" class="text-dark"><i>Linkedin_Link</i></label>
+                            <input type="text" class="form-control  text-center" Name="Linkedin_Link" value="{{old('Linkedin_Link')}}">
+                            <ul>
+                              @error('Linkedin_Link')
+                               <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                                 @enderror
+                                </ul>
+                              </div> 
                         </div>
                           </div>
                              <div class="modal-footer">

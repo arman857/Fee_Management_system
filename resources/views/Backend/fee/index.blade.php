@@ -15,6 +15,10 @@
                    <div class="card-header">
                     <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><i>Add Fee</i></button>
                      </div>
+                     <form class="form-inline my-2 my-lg-0">
+                      <input class="form-control mr-sm-2" type="text"  name="search" placeholder="Search">
+                      <button class="btn btn-warning" type="submit">Search</button>
+                      </form>
                       <div class="card-body">
                        <table class="table caption-top">
                          <thead class=" text-info">
@@ -44,6 +48,7 @@
                                                      @else
                                                       <span class="badge badge-primary"><i>Pending</i></span>
                                                        @endif
+                                                        </td>
                                                         <td class="text-center">
 <a href="{{url('fees/edit',$data->id)}}"> <button class="btn btn-primary btn-sm"><i> EDIT</i></button></a>
  <a href="{{url('deletes',$data->id)}}"> <button class="btn btn-danger btn-sm"><i>Delete</i></button></a>
@@ -54,7 +59,7 @@
       @endforeach
        </tbody>
         </table>
-         {{$fees->links()}}
+         {{-- {{$fees->links()}} --}}
           </div>
            <div class="card-footer text-muted">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,18 +77,32 @@
                         <div class="row">
                          <div class="form-group col-6">
                           <label for="exampleFormControlInput1" class="text-info"><i>Payment Date</i></label>
-                           <input type="date" class="form-control  text-center" name="date" >
+                           <input type="date" class="form-control  text-center" name="date" value="{{old('date')}}" >
+                           <ul>
+                            @error('date')
+                             <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                               @enderror
+                         </ul>
                             </div>
                              <div class="form-group col-6">
                               <label for="exampleFormControlInput1" class="text-info"><i>Student Name</i></label>
-                               <input type="text" class="form-control text-center" name="student_name" placeholder=
-                                "Student Name"required>
+                               <input type="text" class="form-control text-center" name="student_name" value="{{old('student_name')}}">
+                               <ul>
+                                @error('student_name')
+                                 <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                                   @enderror
+                             </ul>
                                  </div>
                                    </div>
                                     <div class="row">
 <div class="form-group col-6">
  <label for="exampleFormControlInput1" class="text-info"><i>Amount</i></label>
-  <input type="number" class="form-control  text-center" name="amount" placeholder="Enter your amount" required>
+  <input type="number" class="form-control  text-center" name="amount" value="{{old('amount')}}">
+  <ul>
+    @error('amount')
+     <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+       @enderror
+ </ul>
    </div>
     <div class="form-group col-6">
      <label for="exampleFormControlInput1" class="text-info"><i>Payment Method</i></label>
@@ -104,7 +123,12 @@
                     </div>
                      <div class="form-group col-6">
                       <label for="exampleFormControlInput1" class="text-info"><i>Comment</i></label>
-                       <input type="text" class="form-control text-center" name="comment" placeholder="Enter your Comment here" required>
+                       <input type="text" class="form-control text-center" name="comment" value="{{old('comment')}}">
+                       <ul>
+                        @error('comment')
+                         <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                           @enderror
+                     </ul>
                         </div>
                          </div>   
                           </div>

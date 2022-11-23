@@ -17,15 +17,32 @@ class settingController extends Controller
 
       public function store(request $request)
       {
+        $validate=$request->validate([
+          'Company_Name'  =>['required'],
+          'Logo'   =>  ['required'],
+          'Email'  =>['required'],
+            'Phone'  =>['required'],
+            'Description'  =>['required'],
+            'Facebook_Link'  =>['required'],
+            'Twitter_Link'   =>['required'],
+            'Instagram_Link'  =>['required'],
+            'Linkedin_Link'  =>['required']
+        ]);
         $settings=new setting;
         $settings->Company_Name=$request->Company_Name;
         $settings->Logo=$request->Logo;
+        if($request->hasfile('Logo'))
+        {
+            $image=$request->file('Image')->store('setting','uploads');
+            $settings->Logo=$image;
+        }
         $settings->Email=$request->Email;
         $settings->Phone=$request->Phone;
         $settings->Description=$request->Description;
         $settings->Facebook_Link=$request->Facebook_Link;
-        $settings->Google_Link=$request->Google_Link;
-        $settings->Youtube_Link=$request->Youtube_Link;
+        $settings->Twitter_Link=$request->Twitter_Link;
+        $settings->Instagram_Link=$request->Instagram_Link;
+        $settings->Linkedin_Link=$request->Linkedin_Link;
         $settings->save();
         return redirect(route('index'));
       }
@@ -54,8 +71,9 @@ class settingController extends Controller
         $settings->Phone=$request->Phone;
         $settings->Description=$request->Description;
         $settings->Facebook_Link=$request->Facebook_Link;
-        $settings->Google_Link=$request->Google_Link;
-        $settings->Youtube_Link=$request->Youtube_Link;
+        $settings->Twitter_Link=$request->Twitter_Link;
+        $settings->Instagram_Link=$request->Instagram_Link;
+        $settings->Linkedin_Link=$request->Linkedin_Link;
         $settings->save();
         return redirect(route('index'))->with('primary','update is success fully');
       }

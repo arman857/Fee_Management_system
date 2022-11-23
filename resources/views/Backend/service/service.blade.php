@@ -74,7 +74,12 @@
                      <div class="row">
                        <div class="form-group col-6">
                         <label for="exampleFormControlInput1" class="text-info"><i>Title</i></label>
-                          <input type="text" class="form-control  text-center" name="Title" placeholder="Title" required>
+                      <input type="text" class="form-control  text-center" name="Title" placeholder="Title" value="{{old('Title')}}">
+                      <ul>
+                        @error('Title')
+                         <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                           @enderror
+                           </ul>
                            </div>
                              <div class="form-group col-6">
                               <label for="exampleFormControlInput1" class="text-info"><i>Status</i></label>
@@ -87,18 +92,33 @@
                                      <div class="row">
                                       <div class="form-group col-12">
 <label for="exampleFormControlInput1" class="text-info"><i>Description</i></label>
-  <textarea type="text" class="form-control  text-center" name="Description" placeholder="Description" required></textarea> 
+  <textarea type="text" class="form-control  text-center" name="Description" placeholder="Description" value="{{old('Description')}}"></textarea> 
+  <ul>
+    @error('Description')
+     <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+       @enderror
+     </ul>
     </div>
       </div>
         <div class="row">
           <div class="form-group col-12">
             <label for="exampleFormControlInput1" class="text-info"><i>Short_Description</i></label>
-              <textarea type="text" class="form-control  text-center" name="short_description" placeholder="Short_Description" required></textarea>
+              <textarea type="text" class="form-control  text-center" name="short_description" placeholder="Short_Description" value="{{old('short_description')}}"></textarea>
+              <ul>
+                @error('short_description')
+                 <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                   @enderror
+                </ul>
                 </div>
                   </div>
                     <div class="form-group col-6">
                       <label for="exampleFormControlInput1" class="text-info"><i>Image</i></label>
-                        <input type="file" class="form-control  text-center" name="Image" placeholder="image" required>
+                        <input type="file" class="form-control  text-center" name="Image" placeholder="image" value="{{old('Image')}}">
+                        <ul>
+                          @error('Image')
+                           <li><span style=color:blue><i>{{$message}}</i></span></li><br>
+                             @enderror
+                            </ul>
                           </div>
                            </div>
                             <div class="modal-footer">

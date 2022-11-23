@@ -7,13 +7,32 @@ use Illuminate\Http\Request;
 
 class studentController extends Controller
 {
-    public function infor(){
-        $students=student::paginate(10);
+    public function infor(request $request){
+
+        $search=$request['search']??"";
+        if($search !=""){
+        $students = student::where('Name','LIKE',"%$search%")->get();
+        }else{
+          
+        $students=student::all();
+        }
+
+
         return view('backend.student.infor',compact('students'));
     }
 
     public function store(request $request)
     {
+        $validate=$request->validate([
+            'Name'=>['required'],
+            'Father_Name'=>['required'],
+            'Mother_Name'=>['required'],
+            'DOB'=>['required'],
+            'Class' =>['required'],
+            'Address'=>['required'],
+            'Mobile_Number' =>['required'],
+          ]);
+
         $student=new student;
         $student->Name=$request->Name;
         $student->Father_Name=$request->Father_Name;
