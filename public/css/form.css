@@ -43,7 +43,11 @@
         float: right;
         padding-top: 16px;
       }
-    
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light img {
+        height: 6rem;
+        border-radius: 3rem;
+        margin: 0 1rem;
+    };
       
        
 

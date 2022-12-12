@@ -36,14 +36,14 @@
                <div class="col-lg-3 col-sm-6 mb-5">
                   <h1 class="customer_text">OUR Company Details</h1>
                 
-                    {{$setting['Description']}}
+                   <h2 class="text-light"> {{$setting['Description']}}</h2>
                </div>
                </div>
             </div>
             <div class="input-group bg-warning justify-content-center">
                <ul>
-               <li><h1><i>Company Email</i></h1></li>
-               <li><h2><i>{{$setting['Email']}}</i></h2></li>
+               <li class="text-center text-primary"><h2><i>Company Email</i></h2></li>
+               <li class="text-center text-primary m"><h3><i>{{$setting['Email']}}</i></h3  ></li>
                </ul>
             </div>
          </div>

@@ -2,14 +2,16 @@
 @section('user','active')
 @section('title','user')
 @section('contain')
-@if (session('success'))
-    <span class="alert alert-success"> {{ session('success') }}
-    </span>
-        @endif
-           @if (session('danger'))
-            <div class="alert alert-danger"> {{ session('danger') }}
-             </div>
-                @endif
+<script>
+    @if(Session::has('success'))
+          toastr.options =
+           {
+            "closeButton" : true,
+               "progressBar" : true
+            }
+                 toastr.error("{{ Session('success') }}");
+               @endif
+</script>
                 <div class="container">
                  <div class="card">
                   <div class="card-header">

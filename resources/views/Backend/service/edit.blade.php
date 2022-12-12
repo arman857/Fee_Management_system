@@ -8,6 +8,7 @@
              @if (session('danger'))
               <div class="alert alert-danger"> {{ session('danger') }}
                 </div>
+                @endif
                   <div class="container">
                    <form  action="{{url('services/update')}}/{{$service->id}}" method="POST">
                        @csrf
@@ -33,11 +34,11 @@
                     <label for="exampleFormControlInput1" class="text-info"><i>short_description</i></label>
                       <input type="text" class="form-control  text-center" value="{{$service->short_description}}"name="short_description" placeholder="Short_description">
                         </div>
-    <div class="row">
       <div class="form-group col-6">
         <label for="exampleFormControlInput1" class="text-info"><i>image</i></label>
-          <input type="text" class="form-control  text-center" value="{{$service->image}}" name="image" placeholder="image">
+          <input type="file" class="form-control  text-center"  name="image" placeholder="image">
             </div>
+            <img src="{{url('storage/'.$service->Image)}}" width="200px" height="200px">
               </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i>Close</i></button>

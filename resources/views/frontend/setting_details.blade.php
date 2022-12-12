@@ -1,4 +1,6 @@
 @extends('frontend.layout.main')
+@section('service','active')
+@section('title',' service Details')
 @section('main-container')
 
 <div class="furnitures_section layout_padding">

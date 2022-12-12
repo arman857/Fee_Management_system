@@ -24,9 +24,21 @@
        <body>  
        <div class="header_section">
                 <div class="container-fluid">
+                  <style>
+                     nav.navbar.navbar-expand-lg.navbar-light.bg-light img {
+    height: 6rem;
+    border-radius: 3rem;
+    margin: 0 1rem;
+};
+                     </style>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                {{-- <div class="logo"><a href="index.html">
-                  <img src="{{url('frontend/images/logo.png')}}"></a></div> --}}
+                  <img src="{{asset('uploads/settings/'.$setting->Logo)}}" width="auto" height="13rem">
+                {{-- <div class="{{$setting['Logo']}}"><a href="index.html"> --}}
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
                 <div class="logo"><h1>Company:{{$setting['Company_Name']}}</h1><a href="index.html"></a></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,7 +67,7 @@
                 <div class="search_icon">
                 <ul>
                <li><a href="https://www.google.com/maps/@28.3973819,84.1301498,7z"><img src="{{url('frontend/images/search-icon.png')}}"></a></li>
-                        <li><a href="{{url('login2')}}">LOGIN</a></li>
+                        <li><a href="{{url('login')}}">LOGIN</a></li>
                      </ul>
                   </div>
                </div>

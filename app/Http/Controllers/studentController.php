@@ -42,14 +42,14 @@ class studentController extends Controller
         $student->Address=$request->Address;
         $student->Mobile_Number=$request->Mobile_Number;
         $student->save();
-        return redirect()->back()->with('success' ,'student is successfully stored');;
+        return redirect()->back()->with('message' ,'student is successfully stored');;
     }
 
     public function delete($id)
     {
         $students=student::findOrFail($id);
         $students->delete();
-        return redirect()->back()->with('danger','student is successfully deleted');;
+        return redirect()->back()->with('success','student is successfully deleted');;
     }
 
     
@@ -71,7 +71,7 @@ class studentController extends Controller
         $student->Address=$request->Address;
         $student->Mobile_Number=$request->Mobile_Number;
         $student->save();
-        return redirect('student/details')->with('success' ,'student is successfully stored');;
+        return redirect('student/details')->with('message' ,'student is successfully stored');;
     }
 
     

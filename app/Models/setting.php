@@ -18,7 +18,8 @@ class setting extends Model
         'Phone',
         'Description',
         'Facebook_Link',
-        'Google_Link',
-        'Youtube_Link'
+        'Twitter_Link',
+        'Instagram_Link',
+        'Linkedin_Link'
     ];
 }

@@ -37,14 +37,14 @@ class FeeController extends Controller
         $fees->status=$request->status;
         $fees->comment=$request->comment;
         $fees->save();
-        return redirect()->back()->with('success','Fee is successfully stored');
+        return redirect()->back()->with('message','Fee is successfully stored');
         }
 
         public function delete($id)
         {
             $fees=fee::findOrFail($id);
             $fees->delete();
-            return redirect()->back()->with('danger','Fee is successfully deleted');;
+            return redirect()->back()->with('success','Fee is successfully deleted');;
         }
 
         public function edit($id)
@@ -63,7 +63,7 @@ class FeeController extends Controller
             $fees->status=$request->status;
             $fees->comment=$request->comment;
             $fees->save();
-            return redirect('fee/details')->with('success','Fee is successfully updated');
+            return redirect('fee/details')->with('message','Fee is successfully updated');
        }
     
        

@@ -52,7 +52,7 @@ class shopController extends Controller
         $shops->Phone_Number=$request->Phone_Number;
         $shops->Massage=$request->Massage;
         $shops->save();
-        return redirect()->back()->with('danger','Mail is successfully send');
+        return redirect()->back()->with('message','Mail is successfully send');
         }
     
 
@@ -60,7 +60,7 @@ class shopController extends Controller
     {
         $shops=shop::findOrFail($id);
         $shops->delete();
-        return redirect()->back()->with('danger','Massage is successfully delete');
+        return redirect()->back()->with('success','Massage is successfully delete');
     }
 
 

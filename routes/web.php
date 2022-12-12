@@ -19,7 +19,7 @@ use App\Http\Controllers\userMassageController;
 
 // //this ruote is website route
 Route::get('/',[shopController::class,'index']);
-Route::get('home/details/{id}',[shopController::class,'service_details']);
+Route::get('service/details/{id}',[shopController::class,'service_details']);
 Route::post('contacts/store',[shopController::class,'store'])->name('contact');
 
 
@@ -32,9 +32,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('student/details',[studentController::class,'infor']);
     Route::POST('students',[studentController::class,'store']);
     Route::get('students/edit/{id}',[studentController::class,'edit']);
-    Route::get('delete/{id}',[studentController::class,'delete']);
+    Route::get('student/delete/{id}',[studentController::class,'delete']);
     Route::post('student/update/{id}',[studentController::class,'update']);
     Route::get('students/detail/{id}',[studentController::class,'detail']);
+    // Route::resource('student', studentController::class);
     
 
     Route::get('fee/details',[FeeController::class,'index']);
@@ -70,3 +71,19 @@ Route::post('setting',[settingController::class,'store'])->name('store');
 Route::get('delete/{id}',[settingController::class,'delete'])->name('delete');
 Route::get('edit/{id}',[settingController::class,'edit']);
 Route::post('edit/{id}',[settingController::class,'update']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

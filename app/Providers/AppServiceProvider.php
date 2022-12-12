@@ -32,8 +32,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        $setting=setting::find(1);
+        $setting=setting::find(15);
         view::share('setting',$setting);
-        
+    
 }
 }

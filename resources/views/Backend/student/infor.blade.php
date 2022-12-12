@@ -2,14 +2,25 @@
 @section('student','active')
 @section('title','Student Details')
 @section('contain')
-    @if (session('success'))
-      <span class="alert alert-success"> {{ session('success') }}
-       </span>
-         @endif
-          @if (session('danger'))
-           <div class="alert alert-danger"> {{ session('danger') }}
-           </div>
-             @endif
+<script>
+  @if(Session::has('message'))
+         toastr.options =
+         {
+        "closeButton" : true,
+        "progressBar" : true
+          }
+            toastr.success("{{ session('message') }}");
+           @endif
+           @if(Session::has('success'))
+           toastr.options =
+         {
+        "closeButton" : true,
+        "progressBar" : true
+          }
+            toastr.error("{{ Session('success') }}");
+           @endif
+    </script>
+  
     {{-- <div class="container"> --}}
 <div class="card mr-5 ml-5">
   <div class="card-header">
@@ -48,7 +59,7 @@
                                                        <td>
 <a href="{{url('students/detail',$data->id)}}"> <button class="btn btn-warning btn-sm"><i>Details</i></button></a>          
   <a href="{{url('students/edit',$data->id)}}"> <button class="btn btn-primary btn-sm"><i>EDIT</i></button></a>
-    <a href="{{url('delete',$data->id)}}"> <button class="btn btn-danger btn-sm"><i>Delete</i></button></a>
+    <a href="{{url('student/delete',$data->id)}}"> <button class="btn btn-danger btn-sm"><i>Delete</i></button></a>
       </td>
         </tr>
           @endforeach

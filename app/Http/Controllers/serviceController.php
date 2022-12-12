@@ -57,8 +57,18 @@ class serviceController extends Controller
             $services->Description=$request->Description;
             $services->Status=$request->Status;
             $services->short_description=$request->short_description;
-            $services->Status=$request->Status;
+            
+            
+            if ($image = $request->file('image')) {
+                $destinationPath = 'image/';
+                $profileImage = date('') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $services['image'] = "$profileImage";
+            }else{
+                unset($services['image']);
+            }
             $services->save();
+            dd($services);
             return redirect('services/details')->with('success','service is successfully stored');
             }
 

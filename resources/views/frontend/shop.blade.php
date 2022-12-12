@@ -41,7 +41,7 @@
                      <h2 class="furnitures_text"><i>{{$data->Title}}</i></h2>
                      <p class="dummy_text "><i>{{$data->short_description}}</i></p>
                      <div class="read_bt_main">
-                        <div class="read_bt mb-5"><a href="{{url('home/details/'.$data->id)}}"><i>Read More</i></a></div>
+                        <div class="read_bt mb-5"><a href="{{url('service/details/'.$data->id)}}"><i>Read More</i></a></div>
                      </div>
                   </div>
                @endforeach
@@ -53,14 +53,16 @@
       <div class="row">
          <div class="col-md-6">
             <h1 class="contact_text"><i>CONTACT US</i></h1>
-            @if (session('success'))
-                  <span class="alert alert-success"> {{ session('success') }}
-                    </span>
-                      @endif
-                       @if (session('danger'))
-                        <div class="alert alert-danger"> {{ session('danger') }}
-                         </div>
-                          @endif
+            <script>
+            @if(Session::has('message'))
+       toastr.options =
+       {
+      "closeButton" : true,
+      "progressBar" : true
+        }
+          toastr.success("{{ session('message') }}");
+         @endif
+          </script>
             <form action="{{url('contacts/store')}}" method="POST"  enctype="multipart/form-data">
                @csrf
             <div class="mail_sectin">
